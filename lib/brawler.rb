@@ -3,10 +3,6 @@ require "json"
 class Brawler
   HEROES_DATA_LOCATION = "lib/heroes.json"
 
-  def initialize
-    # nothing yet
-  end
-
   # @TODO: pass kwargs to select finding attribute
   # Possible attributes could be name, role, difficuty, franchise, and type
   def self.hero(name)
