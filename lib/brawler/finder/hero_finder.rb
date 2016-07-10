@@ -20,13 +20,8 @@ module Brawler
 
       def find_by_name(name)
         hero = find_one(:name, name)
-
-        # Should this method take care of the responsibility of being nil?
-        # Should it be Brawler::Hero?
-        if hero
+        unless hero.nil?
           Brawler::Hero.new(hero)
-        else
-          nil
         end
       end
 
