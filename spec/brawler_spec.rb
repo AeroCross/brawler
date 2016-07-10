@@ -4,10 +4,7 @@ require "brawler/data"
 require "brawler/finder/hero_finder"
 
 RSpec.describe(Brawler) do
-  let(:find_by) { :franchise }
-  let(:value) { "Warcraft" }
-
-  describe "class methods" do
+  describe "Class methods" do
     describe ".hero" do
       subject(:hero) { described_class.hero(value, by: find_by) }
       after(:each) { hero }
