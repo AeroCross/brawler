@@ -1,4 +1,3 @@
-require "json"
 require_relative "brawler/data"
 require_relative "brawler/hero"
 require_relative "brawler/ability"

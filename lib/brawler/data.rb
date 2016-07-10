@@ -1,3 +1,5 @@
+require "json"
+
 module Brawler
   class Data
     HEROES_DATA_LOCATION = File.join(File.dirname(__FILE__), "heroes.json")
