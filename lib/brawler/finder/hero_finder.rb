@@ -19,7 +19,7 @@ module Brawler
       end
 
       def find_by_name(name)
-        hero = find_one(:name, name)
+        hero = find(:name, name)
         unless hero.nil?
           Brawler::Hero.new(hero)
         end
@@ -33,7 +33,7 @@ module Brawler
 
       private
 
-      def find_one(key, value)
+      def find(key, value)
         data.find {|hero| hero.fetch(key) == value}
       end
 
