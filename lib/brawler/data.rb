@@ -1,4 +1,4 @@
-class Brawler
+module Brawler
   class Data
     HEROES_DATA_LOCATION = File.join(File.dirname(__FILE__), "heroes.json")
 
@@ -8,6 +8,10 @@ class Brawler
 
     def load
       JSON.parse(File.open(HEROES_DATA_LOCATION) {|f| f.read }, :symbolize_names => true)
+    end
+
+    def self.test
+      "test"
     end
   end
 end
