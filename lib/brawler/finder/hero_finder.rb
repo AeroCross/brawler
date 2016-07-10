@@ -26,7 +26,7 @@ module Brawler
       end
 
       def find_by_role(role)
-        find_all(:role, role).map do |hero|
+        find_all_matching(:role, role).map do |hero|
           Brawler::Hero.new(hero)
         end
       end
@@ -37,7 +37,7 @@ module Brawler
         data.find {|hero| hero.fetch(key) == value}
       end
 
-      def find_all(key, value)
+      def find_all_matching(key, value)
         data.select {|hero| hero.fetch(key) == value}
       end
 
