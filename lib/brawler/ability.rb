@@ -1,4 +1,4 @@
-class Brawler
+module Brawler
   class Ability
     def initialize(ability)
       @name                 = ability[:name]

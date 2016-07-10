@@ -1,4 +1,4 @@
-class Brawler
+module Brawler
   class Hero
       def initialize(hero)
         @name           = hero[:name]
