@@ -4,6 +4,10 @@ require_relative "../hero"
 module Brawler
   module Finder
     class HeroFinder
+      def self.all
+        new().find_all
+      end
+
       def self.by_name(name)
         new().find_by_name(name)
       end
@@ -27,6 +31,12 @@ module Brawler
 
       def find_by_role(role)
         find_all_matching(:role, role).map do |hero|
+          Brawler::Hero.new(hero)
+        end
+      end
+
+      def find_all
+        data.map do |hero|
           Brawler::Hero.new(hero)
         end
       end
