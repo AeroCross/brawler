@@ -1,8 +1,9 @@
 require "json"
+require_relative "brawler/data"
+require_relative "brawler/hero"
+require_relative "brawler/ability"
 
 class Brawler
-  HEROES_DATA_LOCATION = "lib/heroes.json"
-
   # @TODO: pass kwargs to select finding attribute
   # Possible attributes could be name, role, difficuty, franchise, and type
   def self.hero(name)
@@ -22,8 +23,7 @@ class Brawler
 
   private
 
-  # User a JSON loader? Too much?
   def data
-    @data ||= JSON.parse(File.open(HEROES_DATA_LOCATION) {|f| f.read }, :symbolize_names => true)
+    @data ||= Data.load
   end
 end
