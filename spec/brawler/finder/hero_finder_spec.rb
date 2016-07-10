@@ -11,6 +11,8 @@ RSpec.describe Brawler::Finder::HeroFinder do
 
       context "when the Hero exists" do
         let(:hero) { "Thrall" }
+
+        # Stub, maybe?
         it "returns information of a Hero" do
           expect(by_name.name).to eq("Thrall")
           expect(by_name.title).to eq("Warchief of the Horde")
