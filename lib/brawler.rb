@@ -76,7 +76,7 @@ class Brawler
       @mount                = ability[:mount]
     end
 
-    attr_reader :name, :description, :shortcut, :cooldown, :mana_cost, :mana_cost_per_second
+    attr_reader :name, :description, :shortcut, :cooldown, :mana_cost, :mana_cost_per_second,
                 :aim_type, :heroic, :trait, :mount
   end
 end
