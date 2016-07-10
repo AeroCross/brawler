@@ -9,4 +9,7 @@ Gem::Specification.new do |s|
   s.files = ["lib/brawler.rb"] # @TODO: load files dynamically
   s.homepage = nil # at the moment
   s.license = "MIT"
+
+  # Dependencies
+  s.add_runtime_dependency "json", ["<= 1.8.3"]
 end
