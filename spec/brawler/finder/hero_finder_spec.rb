@@ -2,14 +2,15 @@ require "spec_helper"
 require "brawler/finder/hero_finder"
 
 RSpec.describe Brawler::Finder::HeroFinder do
-  let(:hero) { "Thrall" }
-  let(:role) { "Support" }
+  let(:hero) { "Valla" }
+  let(:role) { "Assassin" }
 
   describe "class methods" do
     describe ".by_name" do
       subject(:by_name) { described_class.by_name(hero) }
 
       context "when the Hero exists" do
+        let(:hero) { "Thrall" }
         it "returns information of a Hero" do
           expect(by_name.name).to eq("Thrall")
           expect(by_name.title).to eq("Warchief of the Horde")
@@ -29,12 +30,12 @@ RSpec.describe Brawler::Finder::HeroFinder do
       subject(:by_role) { described_class.by_role(role) }
 
       context "when the role exists" do
+        let(:role) { "Support" }
         it "returns an array of all the heroes who match a role"
       end
 
       context "when the role does not exist" do
         let(:role) { "Jungler" }
-
         it "returns nil"
       end
     end
