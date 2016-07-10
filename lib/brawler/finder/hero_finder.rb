@@ -1,5 +1,5 @@
-require "brawler/data"
-require "brawler/hero"
+require_relative "../data"
+require_relative "../hero"
 
 module Brawler
   module Finder

@@ -1,6 +1,7 @@
 require_relative "brawler/data"
 require_relative "brawler/hero"
 require_relative "brawler/ability"
+require_relative "brawler/finder/hero_finder"
 
 module Brawler
   # @TODO: pass kwargs to select finding attribute
