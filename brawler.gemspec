@@ -6,7 +6,14 @@ Gem::Specification.new do |s|
   s.description = s.summary
   s.authors = ["Mario Cuba"]
   s.email = ["mario@mariocuba.net"]
-  s.files = ["lib/brawler.rb"] # @TODO: load files dynamically
+  s.files = [
+    "lib/brawler.rb",
+    "lib/brawler/data.rb",
+    "lib/brawler/hero.rb",
+    "lib/brawler/ability.rb",
+    "lib/brawler/finder/hero_finder.rb",
+    "lib/brawler/finder/ability_finder.rb",
+  ]
   s.homepage = nil # at the moment
   s.license = "MIT"
 
