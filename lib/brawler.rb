@@ -9,6 +9,8 @@ class Brawler
     new().hero(name)
   end
 
+  # Due to the simplicity of the abilities hash, only search by name, and probably
+  # by the fact that they're heroics or talens
   def self.ability(name)
     raise NotImplementedError
   end
