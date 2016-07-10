@@ -12,7 +12,7 @@ RSpec.describe Brawler::Hero do
       ]
     }
   end
-  describe "instance methods" do
+  describe "Instance methods" do
     describe "#abilities" do
       subject(:abilities) { described_class.new(data).abilities }
 
