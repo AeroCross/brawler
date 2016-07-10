@@ -19,7 +19,7 @@ module Brawler
       end
 
       def find_by_name(name)
-        hero = find(:name, name)
+        hero = find_one(:name, name)
 
         # Should this method take care of the responsibility of being nil?
         # Should it be Brawler::Hero?
@@ -38,7 +38,7 @@ module Brawler
 
       private
 
-      def find(key, value)
+      def find_one(key, value)
         data.find {|hero| hero.fetch(key) == value}
       end
 
