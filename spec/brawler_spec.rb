@@ -1,20 +1,37 @@
 require "rspec"
-require_relative "../lib/brawler.rb"
+require "brawler"
+require "brawler/data"
+require "brawler/finder/hero_finder"
 
 RSpec.describe(Brawler) do
+  let(:find_by) { :franchise }
+  let(:value) { "Warcraft" }
+
   describe "class methods" do
     describe ".hero" do
-      subject(:hero) { described_class.hero("Abathur")}
+      subject(:hero) { described_class.hero(value, by: find_by) }
+      after(:each) { hero }
 
-      it "returns a given hero" do
-        expect(hero.name).to eq("Abathur")
-        expect(hero.title).to eq("Evolution Master")
-        expect(hero.description).to include("Does not directly engage in combat")
-        expect(hero.role).to eq("Specialist")
-        expect(hero.type).to eq("Melee")
-        expect(hero.franchise).to eq("Starcraft")
-        expect(hero.difficulty).to eq("Very Hard")
-        expect(hero.release_date).to eq("2014-01-01")
+      context "when finding heroes by name" do
+        let(:find_by) { :name }
+        let(:value) { "Anub'arak" }
+
+        it "calls the appropriate class" do
+          expect(Brawler::Finder::HeroFinder)
+            .to receive(:by_name)
+            .with(value)
+        end
+      end
+
+      context "when finding heroes by role" do
+        let(:find_by) { :role }
+        let(:value) { "Specialist" }
+
+        it "calls the appropriate class" do
+          expect(Brawler::Finder::HeroFinder)
+            .to receive(:by_role)
+            .with(value)
+        end
       end
     end
 
