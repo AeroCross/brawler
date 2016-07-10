@@ -24,5 +24,19 @@ RSpec.describe Brawler::Finder::HeroFinder do
         end
       end
     end
+
+    describe ".by_role" do
+      subject(:by_role) { described_class.by_role(role) }
+
+      context "when the role exists" do
+        it "returns an array of all the heroes who match a role"
+      end
+
+      context "when the role does not exist" do
+        let(:role) { "Jungler" }
+
+        it "returns nil"
+      end
+    end
   end
 end
