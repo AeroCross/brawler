@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
     "lib/brawler/ability.rb",
     "lib/brawler/finder/hero_finder.rb",
     "lib/brawler/finder/ability_finder.rb",
+    "lib/brawler/heroes.json",
   ]
   s.homepage = nil # at the moment
   s.license = "MIT"
