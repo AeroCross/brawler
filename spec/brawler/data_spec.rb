@@ -2,7 +2,7 @@ require "spec_helper"
 require "brawler/data"
 
 RSpec.describe Brawler::Data do
-  describe "class methods" do
+  describe "Class methods" do
     describe ".load" do
       subject(:heroes_data) { described_class.load }
 

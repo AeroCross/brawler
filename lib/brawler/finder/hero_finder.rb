@@ -4,38 +4,26 @@ require_relative "../hero"
 module Brawler
   module Finder
     class HeroFinder
-      def self.all
-        new().find_all
-      end
-
-      def self.by_name(name)
-        new().find_by_name(name)
-      end
-
-      def self.by_role(role)
-        new().find_by_role(role)
-      end
-
       def initialize(data = nil)
         if data
           @data = data
         end
       end
 
-      def find_by_name(name)
+      def by_name(name)
         hero = find(:name, name)
         unless hero.nil?
           Brawler::Hero.new(hero)
         end
       end
 
-      def find_by_role(role)
+      def by_role(role)
         find_all_matching(:role, role).map do |hero|
           Brawler::Hero.new(hero)
         end
       end
 
-      def find_all
+      def all
         data.map do |hero|
           Brawler::Hero.new(hero)
         end

@@ -7,7 +7,7 @@ RSpec.describe Brawler::Finder::HeroFinder do
   let(:rehgar) { instance_double(Brawler::Hero, :name => "Rehgar", :role => "Support") }
   let(:diablo) { instance_double(Brawler::Hero, :name => "Diablo", :role => "Warrior") }
 
-  let(:data) do
+  let(:hero_data) do
     [
       { :name => "Tassadar", :role => "Support" },
       { :name => "Valla", :role => "Assassin" },
@@ -17,17 +17,16 @@ RSpec.describe Brawler::Finder::HeroFinder do
   end
 
   before do
-    allow(Brawler::Data).to receive(:load).and_return(data)
-    allow(Brawler::Hero).to receive(:new).with(data[0]).and_return(tassadar)
-    allow(Brawler::Hero).to receive(:new).with(data[1]).and_return(valla)
-    allow(Brawler::Hero).to receive(:new).with(data[2]).and_return(rehgar)
-    allow(Brawler::Hero).to receive(:new).with(data[3]).and_return(diablo)
+    allow(Brawler::Data).to receive(:load).and_return(hero_data)
+    allow(Brawler::Hero).to receive(:new).with(hero_data[0]).and_return(tassadar)
+    allow(Brawler::Hero).to receive(:new).with(hero_data[1]).and_return(valla)
+    allow(Brawler::Hero).to receive(:new).with(hero_data[2]).and_return(rehgar)
+    allow(Brawler::Hero).to receive(:new).with(hero_data[3]).and_return(diablo)
   end
 
-  describe "class methods" do
-    describe ".all" do
-      subject(:all) { described_class.all }
-
+  describe "Instance methods" do
+    describe "#all" do
+      subject(:all) { described_class.new().all }
       let(:expected_heroes) { [tassadar, valla, rehgar, diablo] }
 
       it "returns all the heroes available" do
@@ -35,11 +34,11 @@ RSpec.describe Brawler::Finder::HeroFinder do
       end
     end
 
-    describe ".by_name" do
-      subject(:by_name) { described_class.by_name(hero) }
+    describe "#by_name" do
+      subject(:by_name) { described_class.new().by_name(name) }
 
       context "when the Hero exists" do
-        let(:hero) { "Tassadar" }
+        let(:name) { "Tassadar" }
 
         it "returns information of a Hero" do
           expect(by_name).to eq(tassadar)
@@ -47,7 +46,7 @@ RSpec.describe Brawler::Finder::HeroFinder do
       end
 
       context "when the hero does not exist" do
-        let(:hero) { "Lothar" }
+        let(:name) { "Lothar" }
 
         it "returns nil" do
           expect(by_name).to eq(nil)
@@ -55,8 +54,8 @@ RSpec.describe Brawler::Finder::HeroFinder do
       end
     end
 
-    describe ".by_role" do
-      subject(:by_role) { described_class.by_role(role) }
+    describe "#by_role" do
+      subject(:by_role) { described_class.new().by_role(role) }
 
       context "when the role exists" do
         let(:role) { "Support" }
