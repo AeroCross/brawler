@@ -7,11 +7,13 @@ module Brawler
   # @TODO: pass kwargs to select finding attribute
   # Possible attributes could be name, role, difficuty, franchise, and type
   def self.hero(value, by: :name)
+    hero_finder = Finder::HeroFinder.new
+
     case by
     when :name
-      Finder::HeroFinder.by_name(value)
+      hero_finder.by_name(value)
     when :role
-      Finder::HeroFinder.by_role(value)
+      hero_finder.by_role(value)
     else
       nil
     end
