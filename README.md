@@ -7,13 +7,19 @@ Data provided by [heroesjson.com](http://heroesjson.com).
 
 ## Usage
 
-In your `Gemfile` or just in your command line:
+In your `Gemfile`:
+
+```
+gem "brawler"
+```
+
+or just in your command line:
 
 ```
 gem install brawler
 ```
 
-And then
+And then:
 
 ```
 require "brawler"
@@ -23,9 +29,8 @@ Unless you're using Rails — in that case, congratulations! You don't have to d
 
 ## Available classes and methods
 
-### `Brawler.hero`
 ```
-Brawler.hero(value, by:)
+Brawler.hero(value, by: :name)
 ```
 
 `by` can be either `:name` (by default) or `:role`.
@@ -37,9 +42,7 @@ Brawler.hero("Support", by: :role)
 => [Brawler::Hero<@name="Brightwing">, Brawler::Hero<@name="Tassadar">...]
 ```
 
-### `Brawler::Hero`
-
-This contains hero data.
+`Brawler::Hero` contains hero data.
 
 - `#name`
 - `#title`
